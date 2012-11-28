@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+OSM Buildings — JavaScript-библиотека для визуализации геометрии 3D-зданий на интерактивных картах</title>
+	<meta property="title" content="OSM Buildings — JavaScript-библиотека для визуализации геометрии 3D-зданий на интерактивных картах">
+	<meta property="description" content="OSM Buildings — это легковесная JavaScript-библиотека для визуализации геометрии 3D-зданий на интерактивных картах.">
+	<meta property="keywords" content="OSMBuildings, OSM-Buildings, OSM Buildings, 3D Buildings, Extruded Buildings, Elevated Buildings, 3D, Buildings, Leaflet, OpenLayers, Jan Marsch, Map, Maps, fly.js, FlyJS, layer, OpenStreetMaps, OSM, JavaScript, JS, Footprint, Height, Geo, GPS, GIS, Latitude, Longitude, Mercator, Projection, Panning, Zooming, API">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/png" href="./assets/favicon.png">
+	<link rel="stylesheet" href="./assets/css/osmb.css">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css">
+	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css" /><![endif]-->
+	<script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
+	<script src="./assets/js/L.BuildingsLayer.js"></script>
+	<script src="./assets/js/L.Control.ZoomFS.js"></script>
+	<script src="./assets/js/L.Control.Permalink.js"></script>
+</head>
+
+<body>
+<div class="layout">
+	<div class="header"><div class="center">
+		<a href="./"><img src="./assets/images/logo.png" alt="Home" title="OSM Buildings — JavaScript-библиотека для визуализации геометрии 3D-зданий на интерактивных картах" class="logo"></a>
+
+		<ul class="navigation">
+			<li><a href="http://osmbuildings.org/examples.php">Примеры</a></li>
+			<li><a href="http://osmbuildings.org/download.php">Скачать</a></li>
+			<li><a href="http://osmbuildings.org/documentation.php">Документация</a></li>
+			<li><a href="http://osmbuildings.org/questions.php">Вопросы</a></li>
+		</ul>
+
+	</div></div>
+
+	<div class="content"><div class="center">
+		<div id="introMap"></div>
+
+		<ul class="intro">
+			<li><div data-lat="55.745" data-lon="37.606" data-zoom="17">Храм Христа Спасителя</div></li>
+			<li><div data-lat="55.822" data-lon="37.612" data-zoom="16">Останкино</div></li>
+			<li><div data-lat="55.704" data-lon="37.531" data-zoom="16">МГУ</div></li>
+			<!--li><div data-lat="55.751" data-lon="37.538" data-zoom="15">Москва-Сити</div></li-->
+			<li><div data-lat="55.7845" data-lon="37.561" data-zoom="17">МФК Монарх</div></li>
+			<li><div data-lat="55.799" data-lon="37.521" data-zoom="16">Триумф-Палас</div></li>
+		</ul>
+
+		<p>Кликните на одном из мест выше, чтобы посмотреть некоторые наиболее высокие здания.<br /> Подвигайте карту мышкой или клавишами, чтобы увидеть эффект перспективы.</p>
+
+		<p>Движок основан на <a href="http://leaflet.cloudmade.com">Leaflet</a>, тайлы предоставлены <a href="http://mapbox.com">MapBox</a>.</p>
+
+		<p>Геометрия зданий извлечена из файлов <a href="http://openstreetmap.org">OpenStreetMap</a>. В базу внесена Россия и некоторые соседние страны, итого более 6,5 млн объектов. Архивы по регионам доступны для <a href="/dumps/">скачивания</a>.</p>
+
+		<p>OSM Buildings использует только операции с Canvas 2D — <strong>это не WebGL</strong>.<br>
+		Суммарный размер минифицированной библиотеки — 8,6К (3,9К при сжатии gzip).</p>
+	</div></div>
+	<div class="push"></div>
+</div>
+
+<div class="footer"><div class="center">
+	<p>
+		<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://ghbtns.com/github-btn.html?user=kekscom&repo=osmbuildings&type=watch&count=true" style="width:110px;height:20px;"></iframe>
+		<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://platform.twitter.com/widgets/follow_button.html?id=twitter-widget-2&lang=en&screen_name=osmbuildings&show_count=true&show_screen_name=true&size=m" class="twitter-follow-button" style="width:250px;height:20px;"></iframe>
+	</p>
+
+	<p>
+		&copy; 2012 <a href="http://osmbuildings.org/">OSM Buildings</a> &bull; <a href="http://osmbuildings.org/about.php">Jan Marsch</a>
+		&bull; Перевод: <a href="http://putnik.ws/">Sergey Leschina</a>
+	</p>
+
+</div></div>
+
+<script src="./assets/js/osmb.js"></script>
+
+</body>
+</html>
