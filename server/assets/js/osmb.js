@@ -28,9 +28,8 @@ var
 		}
 	),
 
-	l_3d = new L.BuildingsLayer({ url: 'http://osmbuildings.ru/server/?w={w}&n={n}&e={e}&s={s}&z={z}' }),
-	l_3d_alt = new L.BuildingsLayer({ url: 'http://osmbuildings.ru/server/index_alt.php?w={w}&n={n}&e={e}&s={s}&z={z}' }),
-	l_3d_test = new L.BuildingsLayer({ url: 'http://osmbuildings.ru/server/index_test.php?w={w}&n={n}&e={e}&s={s}&z={z}' });
+	l_3d = new L.BuildingsLayer({ url: 'http://data.osmbuildings.ru/?w={w}&n={n}&e={e}&s={s}&z={z}' }),
+	l_3d_test = new L.BuildingsLayer({ url: 'http://test.osmbuildings.ru/?w={w}&n={n}&e={e}&s={s}&z={z}' });
 
 
 /*
@@ -59,7 +58,6 @@ L.control.layers(
 	},
 	{
 		'3D-здания': l_3d,
-		'3D-здания (другая перспектива)': l_3d_alt,
 		'3D-здания (test)': l_3d_test
 	}
 ).addTo(map);
