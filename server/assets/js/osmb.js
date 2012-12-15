@@ -11,7 +11,7 @@ var
 		{
 			attribution: 'Данные карты &copy; участники <a href="http://openstreetmap.org">OpenStreetMap</a>, рендер &copy; <a href="http://mapbox.com">MapBox</a>',
 			maxZoom: 17,
-			alias: 'B'
+			alias: 'MB'
 		}
 	),
 
@@ -19,7 +19,7 @@ var
 		{
 			attribution: 'Данные карты &copy; участники <a href="http://openstreetmap.org">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, рендер © <a href="http://cloudmade.com">CloudMade</a>',
 			maxZoom: 18,
-			alias: 'C'
+			alias: 'CM'
 		}
 	),
 
@@ -31,8 +31,8 @@ var
 		}
 	),
 
-	l_3d = new L.BuildingsLayer({ url: 'http://data.osmbuildings.ru/?w={w}&n={n}&e={e}&s={s}&z={z}', alias: 'D' }),
-	l_3d_test = new L.BuildingsLayer({ url: 'http://test.osmbuildings.ru/?w={w}&n={n}&e={e}&s={s}&z={z}', alias: 'T' });
+	l_3d = new L.BuildingsLayer({ url: 'http://data.osmbuildings.ru/?w={w}&n={n}&e={e}&s={s}&z={z}', alias: '3D' }),
+	l_3d_test = new L.BuildingsLayer({ url: 'http://test.osmbuildings.ru/?w={w}&n={n}&e={e}&s={s}&z={z}', alias: '3T' });
 
 
 /*
