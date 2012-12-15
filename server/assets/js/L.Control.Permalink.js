@@ -62,14 +62,14 @@ L.Control.Permalink = L.Control.extend({
 		if (!this._layers) return;
 
 		var layer = this._layers.currentBaseLayer();
-		if (layer) this._params['layer'] = (this._layers.options.layerHashes == null) ? layer.name : this._layers.options.layerHashes[layer.name];
-		for(x in osm.map.control_layers._layers) {
-			if (osm.map.control_layers._layers[x].overlay) {
-				if (this._map.hasLayer(osm.map.control_layers._layers[x].layer)) {
+		if (layer) this._params['layer'] = (this._layers.options.layerHashes == null) ? layer.layer.options.alias : this._layers.options.layerHashes[layer.layer.options.alias];
+		for(x in c_layers._layers) {
+			if (c_layers._layers[x].overlay) {
+				if (this._map.hasLayer(c_layers._layers[x].layer)) {
 					if (this._layers.options.layerHashes == null)
-						this._params['layer'] += ',' + osm.map.control_layers._layers[x].name;
+						this._params['layer'] += ',' + c_layers._layers[x].layer.options.alias;
 					else
-						this._params['layer'] += this._layers.options.layerHashes[osm.map.control_layers._layers[x].name];
+						this._params['layer'] += this._layers.options.layerHashes[c_layers._layers[x].layer.options.alias];
 				}
 			}
 		}
@@ -202,7 +202,7 @@ L.Control.Layers.include({
 				if (!this._layers.hasOwnProperty(i))
 					continue;
 				obj = this._layers[i];
-				if (obj.name == names[n])
+				if (obj.layer.options.alias == names[n])
 					layers.push(obj.layer);
 			}
 		}
