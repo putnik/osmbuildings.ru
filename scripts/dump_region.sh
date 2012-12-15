@@ -25,7 +25,7 @@ nodejs convert.js \
 --my-table $TABLE \
 --pg-height-field "ROUND(COALESCE(height,\"building:height\", levels*2.5, \"building:levels\"*2.5, 0))" \
 --pg-filter "(man_made IS NOT NULL
-OR (building IS NOT NULL AND NOT EXISTS(
+OR (building IS NOT NULL AND building <> 'no' AND NOT EXISTS(
 	SELECT * FROM planet_osm_polygon parts
 	WHERE parts.\"building:part\" IS NOT NULL
 	AND ST_Within(parts.way, planet_osm_polygon.way)
