@@ -45,9 +45,7 @@ node,way   boundary     text         linear
 node,way   building     text         polygon
 way        building:height     int4  linear,polygon
 way        building:levels     int4  polygon
-way        levels       int4         polygon
 way        building:min_level  int4  polygon
-way        min_level    int4         polygon
 way        building:part       text  polygon
 way        building:parts      text  polygon
 node       capital      text         linear
@@ -71,6 +69,7 @@ node,way   junction     text         linear
 node,way   landuse      text         polygon
 node,way   layer        text         linear
 node,way   leisure      text         polygon
+way        levels       int4         polygon
 node,way   lock         text         linear
 node,way   man_made     text         polygon
 node,way   military     text         polygon
