@@ -43,7 +43,7 @@ l_3d
 	.addTo(map)
 	.setStyle({ strokeRoofs: true });
 
-lt_mbox.addTo(map);
+lt_cmade.addTo(map);
 
 
 /*
@@ -51,8 +51,8 @@ lt_mbox.addTo(map);
  */
 var c_layers = L.control.layers(
 	{
-		'MapBox': lt_mbox,
 		'CloudMade': lt_cmade,
+		'MapBox': lt_mbox,
 		'Mapnik': lt_mapnik
 	},
 	{
