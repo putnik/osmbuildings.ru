@@ -23,8 +23,8 @@ nodejs convert.js \
 --pg-footprint-field way \
 --my-region $REGION \
 --my-table $TABLE \
---pg-height-field "ROUND(COALESCE(height,\"building:height\", levels*2.5, \"building:levels\"*2.5, 0))" \
---pg-minheight-field "COALESCE(min_height, \"building:min_level\"*2.5, 0)" \
+--pg-height-field "ROUND(COALESCE(height, \"building:height\", levels*2.5, \"building:levels\"*2.5, 0))" \
+--pg-minheight-field "ROUND(COALESCE(min_height, \"building:min_level\"*2.5, 0))" \
 --pg-filter "(man_made IS NOT NULL
 OR (building IS NOT NULL AND building <> 'no' AND NOT EXISTS(
 	SELECT * FROM planet_osm_polygon parts
