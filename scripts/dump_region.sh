@@ -38,7 +38,7 @@ echo "Compress..."
 bzip2 -z -f -9 $REGION.sql
 
 echo "Upload to server..."
-scp $REGION.sql.bz2 root@putnik.ws:/srv/http/osmbuildings.ru/dumps/
+scp $REGION.sql.bz2 root@putnik.ws:/srv/http/osmbuildings.ru/dumps/$TABLE/
 
 rm $REGION.sql*
 rm $REGION.osm*
