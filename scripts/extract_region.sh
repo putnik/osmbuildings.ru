@@ -19,10 +19,10 @@ TABLE=${TABLE:-'buildings'}
 echo "Update $REGION:"
 
 echo "Extract..."
-bzip2 -d -k -f ../dumps/$TABLE/$REGION.sql.bz2
+bzip2 -dfk ../dumps/$TABLE/$REGION.sql.bz2
 
 echo "Import..."
-cat ../dumps/$TABLE/$REGION.sql | mysql -h $HOST -u $USER -p $PASS $DB
+cat ../dumps/$TABLE/$REGION.sql | mysql -h$HOST -u$USER -p$PASS $DB
 
 echo "Clear..."
 rm ../dumps/$TABLE/$REGION.sql
