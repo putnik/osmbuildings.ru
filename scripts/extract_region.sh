@@ -3,12 +3,12 @@
 while [ -n "$1" ];
 do
     case "$1" in
-        -r | --region ) echo REGION="$2"; shift 2;;
+        -r | --region ) REGION="$2"; shift 2;;
         -h | --host ) HOST="$2"; shift 2;;
-        -u | --user ) echo USER="$2"; shift 2;;
-        -p | --password ) echo PASS="$2"; shift 2;;
-        -d | --database ) echo DB="$2"; shift 2;;
-        -t | --table ) echo TABLE="$2"; shift 2;;
+        -u | --user ) USER="$2"; shift 2;;
+        -p | --password ) PASS="$2"; shift 2;;
+        -d | --database ) DB="$2"; shift 2;;
+        -t | --table ) TABLE="$2"; shift 2;;
     esac
 done
 
