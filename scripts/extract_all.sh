@@ -1,9 +1,18 @@
 #!/bin/bash
 
-USER=$1
-PASS=$2
-DB=$3
-TABLE=$4
+while [ -n "$1" ];
+do
+    case "$1" in
+        -h | --host ) HOST="$2"; shift 2;;
+        -u | --user ) USER="$2"; shift 2;;
+        -p | --password ) PASS="$2"; shift 2;;
+        -d | --database ) DB="$2"; shift 2;;
+        -t | --table ) TABLE="$2"; shift 2;;
+    esac
+done
 
-cat regions.list | xargs -I {} ./extract_region.sh $9{} $USER $PASS $DB $TABLE;
+HOST=${HOST:-'localhost'}
+TABLE=${TABLE:-'buildings'}
+
+cat regions.list | xargs -I {} ./extract_region.sh -r $9{} -h $HOST -u $USER -p $PASS -d $DB -t $TABLE
 
