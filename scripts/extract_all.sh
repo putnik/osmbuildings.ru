@@ -8,6 +8,7 @@ do
         -p | --password ) PASS="$2"; shift 2;;
         -d | --database ) DB="$2"; shift 2;;
         -t | --table ) TABLE="$2"; shift 2;;
+        * ) shift 1;;
     esac
 done
 
