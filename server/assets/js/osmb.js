@@ -6,12 +6,13 @@ var map = new L.Map('introMap', { zoomControl: false }).setView([55.745, 37.606]
  */
 
 var
-	lt_mbox = new L.TileLayer(
-		'http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-streets/{z}/{x}/{y}.png',
+	lt_mquest = new L.TileLayer(
+		'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
 		{
-			attribution: 'Данные карты &copy; участники <a href="http://openstreetmap.org">OpenStreetMap</a>, рендер &copy; <a href="http://mapbox.com">MapBox</a>',
-			maxZoom: 17,
-			alias: 'MB'
+			attribution: 'Данные карты &copy; участники <a href="http://openstreetmap.org">OpenStreetMap</a>, рендер &copy; <a href="http://www.mapquest.com/">MapQuest <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></a>',
+			maxZoom: 18,
+			subdomains: '1234',
+			alias: 'MQ'
 		}
 	),
 
@@ -52,7 +53,7 @@ lt_cmade.addTo(map);
 var c_layers = L.control.layers(
 	{
 		'CloudMade': lt_cmade,
-		'MapBox': lt_mbox,
+		'MapQuest': lt_mquest,
 		'Mapnik': lt_mapnik
 	},
 	{
