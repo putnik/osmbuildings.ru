@@ -196,7 +196,7 @@ code {
 
 .leaflet-control-fullscreen {
 	margin-bottom: 5px;
-	background-image: url(../images/icon-fullscreen.png);
+	background-image: url(images/icon-fullscreen.png);
 }
 
 .leaflet-control-fullscreen.last {
