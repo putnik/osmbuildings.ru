@@ -194,6 +194,10 @@ code {
 	margin-top: 100px;
 }
 
+.leaflet-fullscreen .leaflet-control-container .leaflet-top {
+	margin-top: 0;
+}
+
 .leaflet-control-fullscreen {
 	margin-bottom: 5px;
 	background-image: url(images/icon-fullscreen.png);
