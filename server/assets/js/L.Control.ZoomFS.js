@@ -17,6 +17,10 @@ L.Control.ZoomFS = L.Control.Zoom.extend({
 		this._createButton('Zoom in', className + '-in', container, map.zoomIn, map);
 		this._createButton('Zoom out', className + '-out', container, map.zoomOut, map);
 
+		if (L.DomUtil.hasClass(this._map._container, 'leaflet-fullscreen')) {
+			this._enterFullScreen();
+		}
+
 		return container;
 
 	},

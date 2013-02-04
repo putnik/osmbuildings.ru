@@ -63,7 +63,7 @@ var c_layers = L.control.layers(
 ).addTo(map);
 
 
+new L.Control.Permalink(c_layers).addTo(map).setPosition('bottomleft');
 new L.Control.ZoomFS().addTo(map);
 new L.Control.Locate().addTo(map);
-new L.Control.Permalink(c_layers).addTo(map).setPosition('bottomleft');
 

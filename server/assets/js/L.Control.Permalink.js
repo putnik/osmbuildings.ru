@@ -15,6 +15,10 @@ L.Control.Permalink = L.Control.extend({
 	},
 
 	onAdd: function(map) {
+		if (this._params['fs'] == 1) {
+			L.DomUtil.addClass(this._map._container, 'leaflet-fullscreen')
+		}
+
 		this._container = L.DomUtil.create('div', 'leaflet-control-attribution leaflet-control-permalink');
 		L.DomEvent.disableClickPropagation(this._container);
 		map.on('moveend', this._update_center, this);
@@ -82,6 +86,7 @@ L.Control.Permalink = L.Control.extend({
 		this._params['zoom'] = this._map.getZoom();
 		this._params['lat'] = center.lat;
 		this._params['lon'] = center.lng;
+		this._params['fs'] = L.DomUtil.hasClass(this._map._container, 'leaflet-fullscreen') ? 1 : 0;
 	},
 
 	_round_point: function(point) {
@@ -234,17 +239,17 @@ L.Control.Layers.include({
 	},
 
 	listCurrentOverlays: function() {
-        var result = [];
-        for (var i in this._layers) {
-            if (!this._layers.hasOwnProperty(i))
-                continue;
-            var obj = this._layers[i];
-            if (!obj.overlay) continue;
-            if (this._map.hasLayer(obj.layer))
-                result.push(obj);
-        }
-        return result;
-    },
+		var result = [];
+		for (var i in this._layers) {
+			if (!this._layers.hasOwnProperty(i))
+				continue;
+			var obj = this._layers[i];
+			if (!obj.overlay) continue;
+			if (this._map.hasLayer(obj.layer))
+				result.push(obj);
+		}
+		return result;
+	},
 
 	_get_layername_by_hash: function(hash) {
 		if (this.options.layerHashes != null)
@@ -258,11 +263,11 @@ L.Control.Layers.include({
 L.UrlUtil = {
 	queryParse: function(s) {
 		var p = {};
-    var sep = "&";
-    if (s.search("&amp;") != -1)
-        sep = "&amp;";
-    var params = s.split(sep);
-    for(var i = 0; i < params.length; i++) {
+		var sep = "&";
+		if (s.search("&amp;") != -1)
+			sep = "&amp;";
+		var params = s.split(sep);
+		for(var i = 0; i < params.length; i++) {
 			var tmp = params[i].split('=');
 			if (tmp.length != 2) continue;
 			p[tmp[0]] = tmp[1];
