@@ -6,6 +6,23 @@ var map = new L.Map('introMap', { zoomControl: false }).setView([55.745, 37.606]
  */
 
 var
+	lt_cmade = L.tileLayer('http://{s}.tile.cloudmade.com/324b77d6f6774461a4ba74d61caba29b/997/256/{z}/{x}/{y}.png',
+		{
+			attribution: 'Данные карты &copy; участники <a href="http://openstreetmap.org">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, рендер © <a href="http://cloudmade.com">CloudMade</a>',
+			maxZoom: 18,
+			alias: 'CM'
+		}
+	),
+
+	lt_mbox = new L.TileLayer(
+		'https://tiles.mapbox.com/v3/putnik.map-86mogcj7/{z}/{x}/{y}.png',
+		{
+			attribution: 'Данные карты &copy; участники <a href="http://openstreetmap.org">OpenStreetMap</a>, рендер &copy; <a href="http://mapbox.com/">MapBox</a>',
+			maxZoom: 17,
+			alias: 'MB'
+		}
+	),
+
 	lt_mquest = new L.TileLayer(
 		'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
 		{
@@ -13,14 +30,6 @@ var
 			maxZoom: 18,
 			subdomains: '1234',
 			alias: 'MQ'
-		}
-	),
-
-	lt_cmade = L.tileLayer('http://{s}.tile.cloudmade.com/324b77d6f6774461a4ba74d61caba29b/997/256/{z}/{x}/{y}.png',
-		{
-			attribution: 'Данные карты &copy; участники <a href="http://openstreetmap.org">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, рендер © <a href="http://cloudmade.com">CloudMade</a>',
-			maxZoom: 18,
-			alias: 'CM'
 		}
 	),
 
@@ -53,6 +62,7 @@ lt_cmade.addTo(map);
 var c_layers = L.control.layers(
 	{
 		'CloudMade': lt_cmade,
+		'MapBox': lt_mbox,
 		'MapQuest': lt_mquest,
 		'Mapnik': lt_mapnik
 	},
