@@ -15,5 +15,5 @@ done
 HOST=${HOST:-'localhost'}
 TABLE=${TABLE:-'buildings'}
 
-cat regions.list | xargs -I {} ./extract_region.sh -r $9{} -h $HOST -u $USER -p $PASS -d $DB -t $TABLE
+cat regions_extract.list | xargs -I {} ./extract_region.sh -r $9{} -h $HOST -u $USER -p $PASS -d $DB -t $TABLE
 
