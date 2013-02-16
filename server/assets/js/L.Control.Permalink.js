@@ -1,9 +1,7 @@
 L.Control.Permalink = L.Control.extend({
 	options: {
 		position: "bottomleft",
-		useAnchor: true,
-		useMarker: true,
-		markerOptions: {}
+		useAnchor: true
 	},
 
 	initialize: function(layers, options) {
@@ -11,7 +9,6 @@ L.Control.Permalink = L.Control.extend({
 		this._set_urlvars();
 		this._centered = false;
 		this._layers = layers;
-		this._marker = null;
 	},
 
 	onAdd: function(map) {
@@ -28,7 +25,6 @@ L.Control.Permalink = L.Control.extend({
 		this._href = L.DomUtil.create('a', null, this._container);
 		this._href.innerHTML = "Permalink";
 		this._set_center(this._params);
-		this._set_marker(this._params, true);
 		this._update_layers();
 		this._update_center();
 
@@ -37,7 +33,6 @@ L.Control.Permalink = L.Control.extend({
 			window.onhashchange = function() {
 				_this._set_urlvars();
 				_this._set_center(_this._params, true);
-				_this._set_marker(_this._params, true);
 				if (fn) return fn();
 			}
 		}
@@ -114,7 +109,6 @@ L.Control.Permalink = L.Control.extend({
 			if (!p.mlat || !p.mlon) return p;
 			p.lat = p.mlat;
 			p.lon = p.mlon;
-			p.marker = '1';
 			delete p['mlat'];
 			delete p['mlon'];
 			return p;
@@ -156,34 +150,6 @@ L.Control.Permalink = L.Control.extend({
 		this._map.setView(new L.LatLng(params.lat, params.lon), params.zoom);
 		if (params.layer && this._layers)
 			this._layers.chooseBaseLayer(params.layer);
-	},
-
-	_set_marker: function(params, center)
-	{
-		if (this._marker)
-			this._map.removeLayer(this._marker);
-		this._marker = null;
-		if ((params.marker != '1' || !this._centered || !this.options.useMarker) && center) return;
-		this._marker = new L.Marker(new L.LatLng(params.lat, params.lon), this.options.markerOptions);
-		this._map.addLayer(this._marker);
-		var popup = this._marker.bindPopup('<a href="'+this._generate_url(params)+'">Ссылка на маркер</a>');
-		if (!center)
-			popup.openPopup();
-	},
-
-	_popup_marker: function(latlng) {
-		latlng = this._round_point(latlng);
-		//copy simple obj
-		this.get_params();
-		var params = {};
-		for (i in this._params)
-			params[i] = this._params[i];
-
-		params.lat = latlng.lat;
-		params.lon = latlng.lng;
-		params.marker = 1;
-
-		this._set_marker(params, false);
 	}
 });
 
