@@ -15,7 +15,7 @@ var
 	),
 
 	lt_mbox = new L.TileLayer(
-		'https://tiles.mapbox.com/v3/putnik.map-86mogcj7/{z}/{x}/{y}.png',
+		'http://{s}.tiles.mapbox.com/v3/putnik.map-86mogcj7/{z}/{x}/{y}.png',
 		{
 			attribution: 'Данные карты &copy; участники <a href="http://openstreetmap.org">OpenStreetMap</a>, рендер &copy; <a href="http://mapbox.com/">MapBox</a>',
 			maxZoom: 17,
